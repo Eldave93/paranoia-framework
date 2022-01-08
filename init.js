@@ -36,23 +36,23 @@ Hooks.once("renderCompendiumDirectory", async function() {
 
 		// import default character sheet
 		// code adapted from the alienrpg-corerules
-		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-character-sheets")
-		await pack.getIndex();
+		let charPack = await game.packs.find((p) => p.metadata.name === "paranoia-character-sheets")
+		await charPack.getIndex();
 
 		const pdfs = ["Character Sheet", "NPC Sheet"];
 		for (const pdf of pdfs) {
-			let entry = pack.index.find((j) => j.name === pdf);
-			game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
+			let entry = charPack.index.find((j) => j.name === pdf);
+			game['journal'].importFromCompendium(charPack, entry._id, { keepId: true });
 		}
 
 		/*
 		 * Scenes
 		 */
 
-		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-scenes")
-		await pack.getIndex();
-		let entry = pack.index.find((j) => j.name === "default");
-		game['scenes'].importFromCompendium(pack, entry._id, { keepId: true });
+		let scenesPack = await game.packs.find((p) => p.metadata.name === "paranoia-scenes")
+		await scenesPack.getIndex();
+		let entry = scenesPack.index.find((j) => j.name === "default");
+		game['scenes'].importFromCompendium(scenesPack, entry._id, { keepId: true });
 
 		/*
 		 * Macros
@@ -108,14 +108,14 @@ Hooks.once("renderActorDirectory", async function() {
 
 		// import default actors
 		// code adapted from the alienrpg-corerules
-		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-default-actors")
-		await pack.getIndex();
+		let actorsPack = await game.packs.find((p) => p.metadata.name === "paranoia-default-actors")
+		await actorsPack.getIndex();
 
 		const actors = ['Default PC', 'Default NPC'];
 
 		for (const actor of actors) {
-			let entry = pack.index.find((j) => j.name === actor);
-			game['actors'].importFromCompendium(pack, entry._id, { keepId: true });
+			let entry = actorsPack.index.find((j) => j.name === actor);
+			game['actors'].importFromCompendium(actorsPack, entry._id, { keepId: true });
 		}
 
 		// update the actors class so they default to PDFActorSheetAdapter
