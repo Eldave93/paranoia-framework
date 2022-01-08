@@ -16,7 +16,7 @@ Three macros are availble for players...TODO
 - **TODO:** Instructions on installing Simple World-Building
 - go to Add-on Modules, 
 - then Install Module, 
-- then in the Manifest URL paste `https://raw.githubusercontent.com/Eldave93/paranoia-red-clearance-edition/main/module.json`
+- then in the Manifest URL paste `https://raw.githubusercontent.com/Eldave93/paranoia-framework/main/module.json`
 
 ## Setup
 - open the Foundry Virtual Tabletop application,
