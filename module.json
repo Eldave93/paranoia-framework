@@ -29,9 +29,9 @@
             "type": "Scene"
         },
         {
-            "name": "paranoia-journal-entries",
-            "label": "Paranoia Journal Entries",
-            "path": "./packs/journal-entries.db",
+            "name": "paranoia-character-sheets",
+            "label": "Paranoia Character Sheets",
+            "path": "./packs/character-sheets.db",
             "entity": "JournalEntry",
             "type": "JournalEntry"
         }

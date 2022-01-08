@@ -30,18 +30,33 @@ Hooks.once("renderCompendiumDirectory", async function() {
 
 		console.log("This code runs once the compendium directory is rendered");
 
+		/*
+		 * Journal
+		 */
+
 		// import default character sheet
 		// code adapted from the alienrpg-corerules
-		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-journal-entries")
+		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-character-sheets")
 		await pack.getIndex();
-		//let entry = pack.index.find((j) => j.name === "Character Sheet");
-		//game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
 
 		const pdfs = ["Character Sheet", "NPC Sheet"];
 		for (const pdf of pdfs) {
 			let entry = pack.index.find((j) => j.name === pdf);
 			game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
 		}
+
+		/*
+		 * Scenes
+		 */
+
+		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-scenes")
+		await pack.getIndex();
+		let entry = pack.index.find((j) => j.name === "default");
+		game['scenes'].importFromCompendium(pack, entry._id, { keepId: true });
+
+		/*
+		 * Macros
+		 */
 
 		// create character roll macro
 		let charRollMacro = await Macro.create({
@@ -86,6 +101,10 @@ Hooks.once("renderActorDirectory", async function() {
 	// check content has not already been imported
 	if (!game.settings.get("paranoia-framework", 'imported') && game.user.isGM) {
 		console.log("This code runs once the actors directory is rendered");
+
+		/*
+		 * Actors
+		 */
 
 		// import default actors
 		// code adapted from the alienrpg-corerules
