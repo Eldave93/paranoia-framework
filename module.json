@@ -22,15 +22,15 @@
             "type": "Cards"
         },
         {
-            "name": "PRCE-scenes",
-            "label": "PRCE Scenes",
+            "name": "paranoia-scenes",
+            "label": "Paranoia Scenes",
             "path": "./packs/scenes.db",
             "entity": "Scene",
             "type": "Scene"
         },
         {
-            "name": "PRCE-journal-entries",
-            "label": "PRCE Journal Entries",
+            "name": "paranoia-journal-entries",
+            "label": "Paranoia Journal Entries",
             "path": "./packs/journal-entries.db",
             "entity": "JournalEntry",
             "type": "JournalEntry"

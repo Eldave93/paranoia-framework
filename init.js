@@ -17,7 +17,7 @@ Hooks.once("renderCompendiumDirectory", async function() {
 	
 	// import default character sheet
 	// code adapted from the alienrpg-corerules
-	let pack = await game.packs.find((p) => p.metadata.name === "PRCE-journal-entries")
+	let pack = await game.packs.find((p) => p.metadata.name === "paranoia-journal-entries")
 	await pack.getIndex();
 	let entry = pack.index.find((j) => j.name === "Character Sheet");
 	game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
@@ -64,7 +64,7 @@ Hooks.once("renderActorDirectory", async function() {
 
 	// import default actors
 	// code adapted from the alienrpg-corerules
-	let pack = await game.packs.find((p) => p.metadata.name === "PRCE-default-actors")
+	let pack = await game.packs.find((p) => p.metadata.name === "paranoia-default-actors")
 	await pack.getIndex();
 
 	const actors = ['Default PC'];
