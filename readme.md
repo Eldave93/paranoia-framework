@@ -41,5 +41,3 @@ Rather than provide all the card images, the framework is there but you'll need 
 - Create a default NPC
 - continue writing the readme
 - I think the minus NODE for character roll is not working properly
-- need to make a check that the Default PC, Character Sheet, and Macros have not already been imported as currently they add each time you load into the world. 
-	- Also it will overwrite any changes made to the default macrobar config each login.
