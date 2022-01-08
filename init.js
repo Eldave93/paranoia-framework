@@ -11,6 +11,17 @@ import * as characterRoll from './macros/Character_Roll.js';
 import * as rollDice from './macros/Roll_Dice.js';
 import * as rollInitiative from './macros/Roll_Initiative.js';
 
+// Setting Hooks to easily interact with the importing of the compendiums.
+Hooks.on('init', () => {
+  game.settings.register("paranoia-framework", 'imported', {
+    name: 'Imported Compendiums',
+    scope: 'world',
+    config: false,
+    type: Boolean,
+    default: false,
+  });
+});
+
 // the first time the Compendium directory is rendered
 Hooks.once("renderCompendiumDirectory", async function() {
 	console.log("This code runs once the compendium directory is rendered");
@@ -73,7 +84,7 @@ Hooks.once("renderActorDirectory", async function() {
 	let pack = await game.packs.find((p) => p.metadata.name === "paranoia-default-actors")
 	await pack.getIndex();
 
-	const actors = ['Default PC'];
+	const actors = ['Default PC', 'Default NPC'];
 
 	for (const actor of actors) {
 		let entry = pack.index.find((j) => j.name === actor);
@@ -85,4 +96,7 @@ Hooks.once("renderActorDirectory", async function() {
 	  types: [],
 	  makeDefault: true
 	});
+
+	// set imported to true
+	game.settings.set("paranoia-framework", 'imported', true);
 });
