@@ -1,0 +1,1 @@
+A place to write my macros using my chosen IDE instead of using the inbuilt editor. These are created and assigned to hotkeys in the `init.js` file.

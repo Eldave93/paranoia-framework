@@ -1,0 +1,61 @@
+{
+    "name": "paranoia-framework",
+    "title": "Paranoia Framework",
+    "description": "Framework for playing Paranoia Red Clearance Edition. This system is completely Unofficial.",
+    "version": "0.1.0",
+    "author": "David Elliott",
+    "minimumCoreVersion": "0.8.6",
+    "compatibleCoreVersion": "9",
+    "packs": [
+        {
+            "name": "PRCE-default-actors",
+            "label": "PRCE Default Actors",
+            "path": "./packs/default-actors.db",
+            "entity": "Actor",
+            "type": "Actor"
+        },
+        {
+            "name": "PRCE-cards",
+            "label": "PRCE Cards",
+            "path": "./packs/cards.db",
+            "entity": "Cards",
+            "type": "Cards"
+        },
+        {
+            "name": "PRCE-scenes",
+            "label": "PRCE Scenes",
+            "path": "./packs/scenes.db",
+            "entity": "Scene",
+            "type": "Scene"
+        },
+        {
+            "name": "PRCE-journal-entries",
+            "label": "PRCE Journal Entries",
+            "path": "./packs/journal-entries.db",
+            "entity": "JournalEntry",
+            "type": "JournalEntry"
+        },
+    ],
+    "dependencies": [
+        {
+          "name": "dice-so-nice",
+          "manifest": "https://gitlab.com/riccisi/foundryvtt-dice-so-nice/raw/4.3.0/module/module.json"
+        },
+        {
+          "name": "worldbuilding",
+          "type": "system",
+          "manifest": "https://gitlab.com/foundrynet/worldbuilding/raw/0.6.x/system.json"
+        },
+        {
+          "name": "pdfoundry",
+          "manifest": "https://raw.githubusercontent.com/Djphoenix719/PDFoundry/master/module.json"
+        }
+    ],
+    "system": ["worldbuilding"],
+    "esmodules": [
+        "./init.js"
+    ],
+    "manifest": "https://raw.githubusercontent.com/Eldave93/paranoia-red-clearance-edition/main/module.json",
+    "download": "https://github.com/Eldave93/paranoia-red-clearance-edition/archive/refs/heads/main.zip",
+    "url": "https://github.com/Eldave93/paranoia-red-clearance-edition"
+}
