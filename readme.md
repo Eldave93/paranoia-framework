@@ -1,4 +1,4 @@
-# Paranoia Red Clearance Edition
+# Paranoia Framework
 
 **version:**0.1.0
 
@@ -26,7 +26,7 @@ Three macros are availble for players...TODO
 - When setting up the world to use this module, make sure to select the *Simple World-Building* as the **Game System**
 - After making any other optional chnages, click **Create World**
 - In the right hand menu, click the cog wheel icon and *Manage Modules*
-- Tick the module *Paranoia Red Clearance Edition*, then *Save Module Settings*
+- Tick the module *Paranoia Framework*, then *Save Module Settings*
 - Now everything I've made should either be automatically added to the world or found in the Compendium
 
 ### Actor Setup
