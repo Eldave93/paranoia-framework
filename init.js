@@ -19,8 +19,14 @@ Hooks.once("renderCompendiumDirectory", async function() {
 	// code adapted from the alienrpg-corerules
 	let pack = await game.packs.find((p) => p.metadata.name === "paranoia-journal-entries")
 	await pack.getIndex();
-	let entry = pack.index.find((j) => j.name === "Character Sheet");
-	game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
+	//let entry = pack.index.find((j) => j.name === "Character Sheet");
+	//game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
+
+	const pdfs = ["Character Sheet", "NPC Sheet"];
+	for (const pdf of pdfs) {
+		let entry = pack.index.find((j) => j.name === pdf);
+		game['journal'].importFromCompendium(pack, entry._id, { keepId: true });
+	}
 
 	// create character roll macro
 	let charRollMacro = await Macro.create({
