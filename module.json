@@ -34,7 +34,7 @@
             "path": "./packs/journal-entries.db",
             "entity": "JournalEntry",
             "type": "JournalEntry"
-        },
+        }
     ],
     "dependencies": [
         {
