@@ -101,7 +101,7 @@ Hooks.once("renderActorDirectory", async function() {
 });
 
 Hooks.on('ready', () => {
-  if (!game.settings.get(moduleKey, 'imported') && game.user.isGM) {
+  if (!game.settings.get("paranoia-framework", 'imported') && game.user.isGM) {
     // set imported to true
 		game.settings.set("paranoia-framework", 'imported', true);
 	}
