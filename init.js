@@ -105,4 +105,4 @@ Hooks.on('ready', () => {
     // set imported to true
 		game.settings.set("paranoia-framework", 'imported', true);
 	}
-};
+});
