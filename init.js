@@ -104,4 +104,5 @@ Hooks.on('ready', () => {
   if (!game.settings.get(moduleKey, 'imported') && game.user.isGM) {
     // set imported to true
 		game.settings.set("paranoia-framework", 'imported', true);
+	}
 };
