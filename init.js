@@ -24,8 +24,11 @@ Hooks.on('init', () => {
 
 // the first time the Compendium directory is rendered
 Hooks.once("renderCompendiumDirectory", async function() {
-	console.log("This code runs once the compendium directory is rendered");
+	
+	// check content has not already been imported
 	if (!game.settings.get("paranoia-framework", 'imported') && game.user.isGM) {
+
+		console.log("This code runs once the compendium directory is rendered");
 
 		// import default character sheet
 		// code adapted from the alienrpg-corerules
@@ -79,25 +82,29 @@ Hooks.once("renderCompendiumDirectory", async function() {
 
 // the first time the actors directory is rendered
 Hooks.once("renderActorDirectory", async function() {
-	console.log("This code runs once the actors directory is rendered");
+	
+	// check content has not already been imported
+	if (!game.settings.get("paranoia-framework", 'imported') && game.user.isGM) {
+		console.log("This code runs once the actors directory is rendered");
 
-	// import default actors
-	// code adapted from the alienrpg-corerules
-	let pack = await game.packs.find((p) => p.metadata.name === "paranoia-default-actors")
-	await pack.getIndex();
+		// import default actors
+		// code adapted from the alienrpg-corerules
+		let pack = await game.packs.find((p) => p.metadata.name === "paranoia-default-actors")
+		await pack.getIndex();
 
-	const actors = ['Default PC', 'Default NPC'];
+		const actors = ['Default PC', 'Default NPC'];
 
-	for (const actor of actors) {
-		let entry = pack.index.find((j) => j.name === actor);
-		game['actors'].importFromCompendium(pack, entry._id, { keepId: true });
+		for (const actor of actors) {
+			let entry = pack.index.find((j) => j.name === actor);
+			game['actors'].importFromCompendium(pack, entry._id, { keepId: true });
+		}
+
+		// update the actors class so they default to PDFActorSheetAdapter
+		Actors.registerSheet("pdfoundry", Actors.registeredSheets[0], {
+		  types: [],
+		  makeDefault: true
+		});
 	}
-
-	// update the actors class so they default to PDFActorSheetAdapter
-	Actors.registerSheet("pdfoundry", Actors.registeredSheets[0], {
-	  types: [],
-	  makeDefault: true
-	});
 });
 
 Hooks.on('ready', () => {
