@@ -86,12 +86,6 @@ Hooks.once("renderActorDirectory", async function() {
 	// check content has not already been imported
 	if (!game.settings.get("paranoia-framework", 'imported') && game.user.isGM) {
 		console.log("This code runs once the actors directory is rendered");
-		
-		// update the actors class so they default to PDFActorSheetAdapter
-		Actors.registerSheet("pdfoundry", Actors.registeredSheets[0], {
-		  types: [],
-		  makeDefault: true
-		});
 
 		// import default actors
 		// code adapted from the alienrpg-corerules
@@ -104,6 +98,12 @@ Hooks.once("renderActorDirectory", async function() {
 			let entry = pack.index.find((j) => j.name === actor);
 			game['actors'].importFromCompendium(pack, entry._id, { keepId: true });
 		}
+
+		// update the actors class so they default to PDFActorSheetAdapter
+		Actors.registerSheet("pdfoundry", Actors.registeredSheets[0], {
+		  types: [],
+		  makeDefault: true
+		});
 	}
 });
 
